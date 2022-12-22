@@ -8,7 +8,7 @@ class artikel {
         $this->connection = $connection;
     }
   
-    public function selecteerArtikel($artikel_id) { /// depends on the class wether public or private
+    public function selecteerArtikel($artikel_id) { /// depends on the class wether public or private (left or right asd)
         $sql = "select * from artikel where id = $artikel_id";
         
     
