@@ -2,16 +2,16 @@
 
 class artikel {
 
-    private $connection;
+    private $connection;                        ///always private
 
-    public function __construct($connection) {
+    public function __construct($connection) {  ///always public
         $this->connection = $connection;
     }
   
-    public function selecteerArtikel($artikel_id) {
-
+    public function selecteerArtikel($artikel_id) { /// depends on the class wether public or private
         $sql = "select * from artikel where id = $artikel_id";
         
+    
         $result = mysqli_query($this->connection, $sql);
         $artikel = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
