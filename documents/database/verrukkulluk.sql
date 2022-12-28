@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2022 at 01:10 PM
+-- Generation Time: Dec 27, 2022 at 06:40 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -94,9 +94,9 @@ CREATE TABLE `gerecht_info` (
   `id` int(11) NOT NULL,
   `record_type` varchar(1) NOT NULL,
   `gerecht_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `datum` date NOT NULL,
-  `nummeriekveld` float NOT NULL,
+  `nummeriekveld` float DEFAULT NULL,
   `tekstveld` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -105,22 +105,33 @@ CREATE TABLE `gerecht_info` (
 --
 
 INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum`, `nummeriekveld`, `tekstveld`) VALUES
-(1, 'b', 1, 0, '0000-00-00', 1, 'Doe wat olie samen met de knoflook in een grote hapjespan. Zet op laag vuur en laat 5 minuten opwarmen.'),
-(2, 'b', 1, 0, '0000-00-00', 2, 'Voeg de ansjovisfilets toe, draai het vuur iets hoger en laat ze smelten in de pan. Voeg de olijven en kappertjes toe en bak ze 5 minuten op middelhoog vuur mee.'),
-(3, 'b', 1, 0, '0000-00-00', 3, 'Doe de tomaatblokjes erbij en breng het geheel op hoog vuur aan de kook. Draai het vuur helemaal omlaag en laat de puttanescasaus 10-15 minuten pruttelen.'),
-(4, 'b', 1, 0, '0000-00-00', 4, 'Kook intussen de spaghetti volgens de aanwijzingen op het pak net beetgaar in gezouten water. Giet de pasta af en vang daarbij wat van het kookwater op.'),
-(5, 'b', 1, 0, '0000-00-00', 5, 'Doe de pasta bij de saus. Roer het geheel indien gewenst los met een scheut kookwater.'),
-(6, 'b', 2, 0, '0000-00-00', 1, 'Verhit de olie in een braad- of hapjespan en bak hierin het gehakt rul. Voeg de knoflook toe en breng op smaak met peper. Kook de spaghetti beetgaar.'),
-(7, 'b', 2, 0, '0000-00-00', 2, 'Giet de tomaten samen met de kruiden door het gehakt en roer goed. Breng aan de kook en laat al roerend zachtjes doorkoken, tot de saus iets dikker wordt. Voeg eventueel een extra scheutje water toe.'),
-(8, 'b', 2, 0, '0000-00-00', 3, 'Serveer de tomaten-gehaktsaus met de spaghetti en bestrooi optioneel met kaas.\r\n'),
-(9, 'b', 3, 0, '0000-00-00', 1, 'Kneed het gehakt met de knoflook en een scheutje olie. voeg zout en peper naar smaak toe'),
-(10, 'b', 3, 0, '0000-00-00', 2, 'Verdeel in 4 gelijke ballen en vorm ze tot een hamburger.'),
-(11, 'b', 3, 0, '0000-00-00', 3, 'Barbecue de hamburgers 3 tot 5 minuten per kant.'),
-(12, 'b', 3, 0, '0000-00-00', 4, 'Leg ze op de broodjes.'),
-(13, 'b', 4, 0, '0000-00-00', 1, 'Begin met de ingrediënten uit het guacamole-pakket. Snijd de knoflook fijn. Snipper de sjalot. Rasp de groene schil van de limoen en pers de vrucht uit. Snijd de tomaat in kleine stukjes en verwijder de zaadlijsten. Halveer de rode peper in de lengte en verwijder de zaadlijsten. Snijd het vruchtvlees fijn. Prak de avocado met een vork in een kom fijn. Roer de knoflook, sjalot, limoenrasp en tomaat erdoor. Breng op smaak met limoensap, rode peper, zout en tabasco'),
-(14, 'b', 4, 0, '0000-00-00', 2, 'Bak de burgers op middelhoog vuur in ca. 6 min. goudbruin en gaar. Keer ze halverwege.'),
-(15, 'b', 4, 0, '0000-00-00', 3, 'Snijd de broodjes open en rooster ze met de snijkant naar beneden ca. 1 min. in de hete pan.'),
-(16, 'b', 4, 0, '0000-00-00', 4, 'Bestrijk de onderkant van de bollen met een beetje guacamole. Leg de burgers erop. Verdeel de rest van de guacamole erover en dek af met de bovenste helften van de broodjes.');
+(1, 'b', 1, NULL, '0000-00-00', 1, 'Doe wat olie samen met de knoflook in een grote hapjespan. Zet op laag vuur en laat 5 minuten opwarmen.'),
+(2, 'b', 1, NULL, '0000-00-00', 2, 'Voeg de ansjovisfilets toe, draai het vuur iets hoger en laat ze smelten in de pan. Voeg de olijven en kappertjes toe en bak ze 5 minuten op middelhoog vuur mee.'),
+(3, 'b', 1, NULL, '0000-00-00', 3, 'Doe de tomaatblokjes erbij en breng het geheel op hoog vuur aan de kook. Draai het vuur helemaal omlaag en laat de puttanescasaus 10-15 minuten pruttelen.'),
+(4, 'b', 1, NULL, '0000-00-00', 4, 'Kook intussen de spaghetti volgens de aanwijzingen op het pak net beetgaar in gezouten water. Giet de pasta af en vang daarbij wat van het kookwater op.'),
+(5, 'b', 1, NULL, '0000-00-00', 5, 'Doe de pasta bij de saus. Roer het geheel indien gewenst los met een scheut kookwater.'),
+(6, 'b', 2, NULL, '0000-00-00', 1, 'Verhit de olie in een braad- of hapjespan en bak hierin het gehakt rul. Voeg de knoflook toe en breng op smaak met peper. Kook de spaghetti beetgaar.'),
+(7, 'b', 2, NULL, '0000-00-00', 2, 'Giet de tomaten samen met de kruiden door het gehakt en roer goed. Breng aan de kook en laat al roerend zachtjes doorkoken, tot de saus iets dikker wordt. Voeg eventueel een extra scheutje water toe.'),
+(8, 'b', 2, NULL, '0000-00-00', 3, 'Serveer de tomaten-gehaktsaus met de spaghetti en bestrooi optioneel met kaas.\r\n'),
+(9, 'b', 3, NULL, '0000-00-00', 1, 'Kneed het gehakt met de knoflook en een scheutje olie. voeg zout en peper naar smaak toe'),
+(10, 'b', 3, NULL, '0000-00-00', 2, 'Verdeel in 4 gelijke ballen en vorm ze tot een hamburger.'),
+(11, 'b', 3, NULL, '0000-00-00', 3, 'Barbecue de hamburgers 3 tot 5 minuten per kant.'),
+(12, 'b', 3, NULL, '0000-00-00', 4, 'Leg ze op de broodjes.'),
+(13, 'b', 4, NULL, '0000-00-00', 1, 'Begin met de ingrediënten uit het guacamole-pakket. Snijd de knoflook fijn. Snipper de sjalot. Rasp de groene schil van de limoen en pers de vrucht uit. Snijd de tomaat in kleine stukjes en verwijder de zaadlijsten. Halveer de rode peper in de lengte en verwijder de zaadlijsten. Snijd het vruchtvlees fijn. Prak de avocado met een vork in een kom fijn. Roer de knoflook, sjalot, limoenrasp en tomaat erdoor. Breng op smaak met limoensap, rode peper, zout en tabasco'),
+(14, 'b', 4, NULL, '0000-00-00', 2, 'Bak de burgers op middelhoog vuur in ca. 6 min. goudbruin en gaar. Keer ze halverwege.'),
+(15, 'b', 4, NULL, '0000-00-00', 3, 'Snijd de broodjes open en rooster ze met de snijkant naar beneden ca. 1 min. in de hete pan.'),
+(16, 'b', 4, NULL, '0000-00-00', 4, 'Bestrijk de onderkant van de bollen met een beetje guacamole. Leg de burgers erop. Verdeel de rest van de guacamole erover en dek af met de bovenste helften van de broodjes.'),
+(17, 'o', 2, 3, '2022-12-27', NULL, 'is lekker met een knoepert erbij'),
+(18, 'o', 2, 4, '2022-12-28', NULL, 'zelfs ik kan dit maken'),
+(19, 'o', 4, 1, '2022-12-27', NULL, 'smaakt goed samen met een blik shultenbrau'),
+(20, 'w', 1, NULL, '0000-00-00', 4, ''),
+(21, 'w', 2, NULL, '0000-00-00', 3, ''),
+(22, 'w', 3, NULL, '0000-00-00', 4, ''),
+(23, 'w', 4, NULL, '0000-00-00', 2, ''),
+(25, 'f', 1, 1, '0000-00-00', NULL, ''),
+(27, 'f', 3, 3, '0000-00-00', NULL, ''),
+(28, 'f', 4, 0, '0000-00-00', NULL, ''),
+(29, 'f', 1, 2, '0000-00-00', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -157,7 +168,8 @@ INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 (15, 3, 10, 4),
 (16, 4, 11, 2),
 (17, 4, 12, 4),
-(18, 4, 10, 4);
+(18, 4, 10, 4),
+(19, 2, 5, 400);
 
 -- --------------------------------------------------------
 
@@ -273,13 +285,13 @@ ALTER TABLE `gerecht`
 -- AUTO_INCREMENT for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `ingredient`
 --
 ALTER TABLE `ingredient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `keuken_type`
@@ -291,7 +303,7 @@ ALTER TABLE `keuken_type`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

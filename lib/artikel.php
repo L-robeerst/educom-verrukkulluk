@@ -9,7 +9,7 @@ class artikel {
     }
   
     public function selecteerArtikel($artikel_id) { /// depends on the class wether public or private (left or right asd)
-        $sql = "select * from artikel where id = $artikel_id";
+        $sql = "SELECT * FROM artikel WHERE id = $artikel_id";
         
     
         $result = mysqli_query($this->connection, $sql);

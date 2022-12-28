@@ -9,7 +9,7 @@ class keuken_type {
     }
   
     public function selecteerKeukenType($keuken_type_id) { /// depends on the class wether public or private (left or right asd)
-        $sql = "select * from keuken_type where id = $keuken_type_id";
+        $sql = "SELECT * FROM keuken_type WHERE id = $keuken_type_id";
         
     
         $result = mysqli_query($this->connection, $sql);
