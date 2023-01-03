@@ -23,7 +23,7 @@ $bds = new boodschappenlijst($connect, $ing);
 
 
 /// VERWERK 
-$bds->boodschappenToevoegen(1,2);
+//$bds->boodschappenToevoegen(1,2);
 /// RETURN
 //echo "<pre>";
 //var_dump($testData);

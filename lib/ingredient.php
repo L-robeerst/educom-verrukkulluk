@@ -5,7 +5,7 @@ class ingredient {
     private $art;
 
     public function __construct($connection, $art) {  ///always public
-        $this->$connection = $connection;
+        $this->connection = $connection;
         $this->art = $art;
     }
     public function selecteerIngredient($gerecht_id) { 
