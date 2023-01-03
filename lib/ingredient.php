@@ -5,8 +5,8 @@ class ingredient {
     private $art;
 
     public function __construct($connection, $art) {  ///always public
-        $this->connection = $connection;
-        $this->artikel = $art;
+        $this->$connection = $connection;
+        $this->art = $art;
     }
     public function selecteerIngredient($gerecht_id) { 
         $sql = "SELECT * FROM ingredient WHERE gerecht_id = $gerecht_id";
@@ -19,7 +19,7 @@ class ingredient {
     }
 
     private function retrieveArtikel ($artikel_id) {
-        return $this->artikel->selecteerArtikel($artikel_id);
+        return $this->art->selecteerArtikel($artikel_id);
     }
 
 

@@ -6,7 +6,7 @@ class gerecht_info {
 
     public function __construct($connection, $usr) {  ///always public
         $this->connection = $connection;
-        $this->user = $usr;
+        $this->usr = $usr;
     }
     public function selecteerGerechtInfo($gerecht_id, $record_type) {
         $sql = "SELECT * FROM gerecht_info WHERE gerecht_id = $gerecht_id AND record_type = '$record_type'  ";
@@ -23,7 +23,7 @@ class gerecht_info {
     }
 
     private function retrieveUser ($user_id) {
-        return $this->user->selecteerUser($user_id);
+        return $this->usr->selecteerUser($user_id);
     }
 
     public function addFavorite ($gerecht_id, $user_id) { ///false toevoegen

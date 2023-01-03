@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2022 at 06:40 PM
+-- Generation Time: Jan 03, 2023 at 11:21 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -55,6 +55,19 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 (10, 'hamburgerbroodjes', 'Wit tarwebroodje gedecoreerd met sesamzaad', 1.9, 'broodje(s)', 6, 'http://localhost/educom-verrukkulluk/assets/img/artikelen/hamburgerbroodjes.png', 285),
 (11, 'guacamolepakket', 'Maak simpel en snel een heerlijke verse guacamole met dit EAT ME guacamolepakket. Alle benodigde ingrediënten zitten in het pakket en achterop de verpakking vind je de bereidingswijze.', 2.4, 'doos', 1, 'http://localhost/educom-verrukkulluk/assets/img/artikelen/guacamolepakket.png', 300),
 (12, 'vegetarische hamburger', 'Veganistische burger op basis van soja en tarwe, verrijkt met vitamine B12. Bron van ijzer en rijk aan eiwitten.', 5.5, 'burgers', 2, 'http://localhost/educom-verrukkulluk/assets/img/artikelen/vegetarische_hamburger.png', 520);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `boodschappenlijst`
+--
+
+CREATE TABLE `boodschappenlijst` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `artikel_id` int(11) NOT NULL,
+  `aantal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -130,8 +143,8 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 (23, 'w', 4, NULL, '0000-00-00', 2, ''),
 (25, 'f', 1, 1, '0000-00-00', NULL, ''),
 (27, 'f', 3, 3, '0000-00-00', NULL, ''),
-(28, 'f', 4, 0, '0000-00-00', NULL, ''),
-(29, 'f', 1, 2, '0000-00-00', NULL, '');
+(29, 'f', 1, 2, '0000-00-00', NULL, ''),
+(31, 'f', 4, 2, '0000-00-00', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -229,6 +242,14 @@ ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `boodschappenlijst`
+--
+ALTER TABLE `boodschappenlijst`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user` (`user_id`),
+  ADD KEY `artikel` (`artikel_id`);
+
+--
 -- Indexes for table `gerecht`
 --
 ALTER TABLE `gerecht`
@@ -276,6 +297,12 @@ ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `boodschappenlijst`
+--
+ALTER TABLE `boodschappenlijst`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+
+--
 -- AUTO_INCREMENT for table `gerecht`
 --
 ALTER TABLE `gerecht`
@@ -285,7 +312,7 @@ ALTER TABLE `gerecht`
 -- AUTO_INCREMENT for table `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `ingredient`

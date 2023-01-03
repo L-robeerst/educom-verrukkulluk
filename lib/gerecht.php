@@ -9,10 +9,10 @@ class gerecht {
 
     public function __construct($connection, $usr, $inf, $kte, $ing) {  ///always public
         $this->connection = $connection;
-        $this->user = $usr;
-        $this->keuken_type = $kte;
-        $this->ingredient = $ing;
-        $this->gerecht_info = $inf;
+        $this->usr = $usr;
+        $this->kte = $kte;
+        $this->ing= $ing;
+        $this->inf= $inf;
 
     }
     public function selecteerGerecht($gerecht_id) { 
@@ -37,35 +37,35 @@ class gerecht {
     }
 
     private function retrieveIngredient ($gerecht_id) {
-        return $this->ingredient->selecteerIngredient($gerecht_id);
+        return $this->ing->selecteerIngredient($gerecht_id);
     }
 
     private function retrieveKeuken ($keuken_id) {
-        return $this->keuken_type->selecteerKeukenType($keuken_id);
+        return $this->kte->selecteerKeukenType($keuken_id);
     }
 
     private function retrieveType ($type_id) {
-        return $this->keuken_type->selecteerKeukenType($type_id);
+        return $this->kte->selecteerKeukenType($type_id);
     }
 
     private function retrieveUser ($user_id) {
-        return $this->user->selecteerUser($user_id);
+        return $this->usr->selecteerUser($user_id);
     }
 
     private function retrieveBereiding ($gerecht_id) {
-        return $this->gerecht_info->selecteerGerechtInfo ($gerecht_id, "b");
+        return $this->inf->selecteerGerechtInfo ($gerecht_id, "b");
     }
 
     private function retrieveOpmerkingen ($gerecht_id) {
-        return $this->gerecht_info->selecteerGerechtInfo ($gerecht_id, "o");
+        return $this->inf->selecteerGerechtInfo ($gerecht_id, "o");
     }
     
     private function retrieveWaardering ($gerecht_id) {
-        return $this->gerecht_info->selecteerGerechtInfo ($gerecht_id, "w");
+        return $this->inf->selecteerGerechtInfo ($gerecht_id, "w");
     }
 
     private function retrieveFavoriet ($gerecht_id) {
-        return $this->gerecht_info->selecteerGerechtInfo ($gerecht_id, "f");
+        return $this->inf->selecteerGerechtInfo ($gerecht_id, "f");
     }
 
     private function calculateCalorie ($gerecht_id) {
