@@ -52,4 +52,10 @@ class gerecht_info {
         return false; 
     
     }
+    public function addWaardering ($gerecht_id, $waardering) {
+
+        $sql = "INSERT INTO gerecht_info (record_type, gerecht_id, nummeriekveld) VALUES ('w', '$gerecht_id', '$waardering')";
+        $sql_result = mysqli_query($this->connection, $sql);
+    }
+    
 }

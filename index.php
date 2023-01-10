@@ -59,6 +59,13 @@ switch($action) {
             break;
         }
 
+        case "waardering_toevoegen":{
+            $waardering = isset($_GET["waardering"]) ? $_GET["waardering"] : 1;
+            $inf->addWaardering($gerecht_id, $waardering);
+            
+            break;
+        }
+
         /// etc
 
 }

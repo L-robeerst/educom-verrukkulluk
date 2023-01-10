@@ -3,31 +3,54 @@
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
 
-{# Loop #}
     <div class="row">
-    {% for record in data %}
+
         <script>
       $(document).ready( function() {
           $(".star").click( function() {
             const star_value = $(this).attr('star-value')
             const id_value = $(this).attr('gerecht-id')
+    
             $('.star').each( (index, elem) => {
               const starItemValue = $(elem).attr('star-value')
               const idItemValue = $(elem).attr('gerecht-id')
               if(starItemValue <= star_value & idItemValue==id_value) {
                 $(elem).addClass('yellow')
               }
-            })
-          })
+              if(starItemValue == star_value & idItemValue==id_value){
+                console.log(star_value)
+                $.ajax({
+                    url: "index.php",
+                    method: "GET",
+                    data: { waardering: star_value, 
+                            gerecht_id: id_value,
+                            action: "waardering_toevoegen"
+                    },
+                    success: function(result) { 
+                    console.log("het is gelukt");
+                    }
+                })
+                
+                id_value
+                star_value
+                "waardering_toevogen"
 
+              }
+
+            })
+          }) 
       })
           
     </script>
+    {# Loop #}
+
+    {% for record in data %}
+
         <div class="col-md-6 home_gerechten">
             <div style="background-image: url('{{ record.afbeelding }}')" class ="home_foto"></div>
             <div class="home_titel_rij">
                 <h3 class="home_titel"> {{ record.titel }}</h4> 
-                <div class="home_rating">{{ record.waardering.0.nummeriekveld }}
+                <div class="home_rating">{{ record.waardering }}
                     <span class="fa fa-star star" star-value="1" gerecht-id ="{{ record.id }}"></span>
                     <span class="fa fa-star star" star-value="2" gerecht-id ="{{ record.id }}"></span>
                     <span class="fa fa-star star" star-value="3" gerecht-id ="{{ record.id }}"></span>
