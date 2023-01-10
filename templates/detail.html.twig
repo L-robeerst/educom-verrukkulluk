@@ -1,5 +1,28 @@
 {% extends "main.html.twig" %}
 
-{% block header %}
-<h1>Hallo Bram</h1>
+{% block content %}
+ <div class="row">
+    {% for record in data %}
+        <div class="col-md-6 home_gerechten">
+            <div style="background-image: url('{{ record.afbeelding }}')" class ="home_foto"></div>
+            <div class="home_titel_rij">
+                <h3 class="home_titel"> {{ record.titel }}</h4> 
+                <div class="home_rating">{{ record.waardering.0.nummeriekveld }}
+                    <div class="fa fa-star"></div>
+                    <div class="fa fa-star"></div>
+                    <div class="fa fa-star"></div>
+                    <div class="fa fa-star"></div>
+                    <div class="fa fa-star"></div>
+                </div>
+            </div>
+            <div>{{ record.korte_omschrijving}}</div>
+            <div>
+                <a href="index.php?gerecht_id={{ record.id }}&action=detail ">smullen</a>
+                {{ record.totaal_prijs|number_format(2,",")}}
+                {{record.totaal_calorieen|round}}
+            </div>
+        </div>
+   
+
+    {% endfor %}
 {% endblock %}

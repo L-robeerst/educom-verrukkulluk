@@ -47,8 +47,228 @@ h3, h4, h5 {
 }
 
 
+
 /** HTML / BODY **/
 html, body {
     font-family: "Helvetica Neue", Arial, SansSerif;
     font-size: 16px;
+}
+
+.header{
+ height: 75%;
+}
+
+.header_logo{
+    height: auto;
+    width: 30%;
+
+}
+.search_bar_corner{
+    display:inline;
+}
+
+.search_bar{
+    border-radius: 15px;
+    margin-top: 5%;
+    z-index: 1;
+    left: 10px;
+    border: var(--white);
+    padding-left:35px;
+    width: 95%;
+
+}
+
+.iconleft {
+    position: relative;
+    font-size: 1.2em;
+    z-index: 1;
+    left: 10px;
+    top: 1px;
+    color: #fca01f;
+    width: 0;
+    cursor:pointer;
+}
+
+.menu {
+    top: 0px;
+    right: 90px;
+}
+
+.dropdown_button{
+    color: #fca01f;
+    font-size: 40px;
+    text-align: left;
+    padding-top: 5px;
+    cursor:pointer; 
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+}
+
+.dropdown_button:hover .dropdown{
+    top: 0px;
+}
+
+.dropdown {
+    position: fixed;
+    top: -400px;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    transition: all 0.4s ease;
+    padding: 40px;
+    z-index: 1 !important;
+
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+}
+
+.dropdown_logo{
+    vertical-align:middle;
+    width: 20%;
+    height: auto;
+    
+}
+.dropdown_text{
+    display: inline-flex;
+    font-family: "pretty_lilyregular";
+    color: #dc3439;
+    font-size: 40px;
+    margin-left: 30%;
+}
+
+.agenda_block{
+    background-color: #95b82d;
+    text-align: center;
+    color: #FFF;
+    width: 320px;
+    margin: 25px auto; 
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+}
+
+.agenda_item_title{
+    font-size: 30px;
+    color: #000;
+    text-align: left;
+
+}
+.agenda_icon{
+    font-size: 40px;
+}
+
+.agenda_item_text{
+    font-size: 12px;
+    color: #000;
+    text-align: left;
+}
+
+.login_block{
+     background-color: #b31714;
+     text-align: center;
+     color: #FFF;
+     width: 320px;
+     margin: 25px auto; 
+     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
+}
+.login_holes{ 
+    width: 270px;
+    margin: 7px auto;
+}
+.login_text{
+    font-size: 12px;
+    text-align: left;
+}
+.login_button{
+    background-color: #eb8d1f;
+    color: #FFF;
+    border-radius: 20px;
+    width: 60%;
+    margin: 7%;
+    margin-bottom: 0px;
+    height: 20%;
+    border: #eb8d1f;
+    font-family: "pretty_lilyregular";
+    font-size: 30px;
+    padding: 0px;
+}
+
+.footer {
+    background-color: #eb8d1f;
+    text-align: left;
+}
+
+.footer_logo {
+    width: 100%;
+}
+
+.footer_title {
+    color:#FFF;
+    font-size:75px;
+}
+
+.footer_text{
+    color:#FFF;
+    line-height: 5%;
+}
+
+
+.home_gerechten{
+    margin: 25px;
+    margin-left: 100px;
+    height: 402px;
+    width: 400px; 
+    border-style: solid;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+
+}
+
+.home_foto{
+    position: relative;
+    top: -3px;
+    left: -15px;
+    width: 400px; 
+    height: 200px;
+    background-size: 100% 100%;
+
+}
+
+.home_titel_rij{
+    display: inline-flex;
+}
+
+.home_titel{
+color: #6e8722;
+}
+
+.home_rating{
+display: inline-flex;
+}
+
+
+.star {
+    color: grey;
+    cursor: pointer;
+}
+
+.star:hover {
+    color: yellow;
+}
+.yellow {
+    color: yellow;
 }

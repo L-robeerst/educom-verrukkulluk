@@ -15,25 +15,31 @@ class gerecht {
         $this->inf= $inf;
 
     }
-    public function selecteerGerecht($gerecht_id) { 
-        $sql = "SELECT * FROM gerecht WHERE id = $gerecht_id";
+    public function selecteerGerecht($gerecht_id = null) {
+        $sql = "SELECT * FROM gerecht";
+        if (!is_null($gerecht_id)) {
+            $sql.= " WHERE id = $gerecht_id";
+        }
         $sql_result = mysqli_query($this->connection, $sql);
-        $result = mysqli_fetch_array($sql_result, MYSQLI_ASSOC);
+        $result = [];
+        while ($row = mysqli_fetch_array($sql_result, MYSQLI_ASSOC)) {
 
-        $result["user"] = $this->retrieveUser($result["user_id"]);
-        $result["ingredient"] = $this->retrieveIngredient($result["id"]);
-        
-        $result["keuken"] = $this->retrieveKeuken($result["keuken_id"]);
-        $result["type"] = $this->retrieveKeuken($result["type_id"]);
+            $row["user"] =$this->retrieveUser($row["user_id"]);
+            $row["ingredient"] =$this->retrieveIngredient($row["id"]);
 
-        $result["bereiding"] = $this->retrieveBereiding($result["id"]);
-        $result["opmerkingen"] = $this->retrieveOpmerkingen($result["id"]);
-        $result["waardering"] = $this->retrieveWaardering($result["id"]);
-        $result["favoriet"] = $this->retrieveFavoriet($result["id"]);
+            $row["keuken"] = $this->retrieveKeuken($row["keuken_id"]);
+            $row["type"] = $this->retrieveKeuken($row["type_id"]);
 
-        $result["totaal_prijs"] = $this->calculatePrijs($result["id"]);
-        $result["totaal_calorieen"] = $this->calculateCalorie($result["id"]);
-        return $result;
+            $row["bereiding"] =$this->retrieveBereiding($row["id"]);
+            $row["opmerkingen"] =$this->retrieveOpmerkingen($row["id"]);
+            $row["waardering"] = $this->retrieveWaardering($row["id"]);
+            $row["favoriet"] = $this->retrieveFavoriet($row["id"]);
+
+            $row["totaal_prijs"] = $this->calculatePrijs($row["id"]);
+            $row["totaal_calorieen"] = $this->calculateCalorie($row["id"]);
+
+            array_push($result, $row);
+        } return $result;
     }
 
     private function retrieveIngredient ($gerecht_id) {
