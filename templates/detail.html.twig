@@ -87,7 +87,7 @@
                 </div>
 				<div class = "col-md-12 detail_omschrijving">{{ data.0.lange_omschrijving}}</div>
                 <div class = "detail_botom_row">
-                    <a class = "col-md-3 detail_lijst_link" href="boodschappenlijst pagina ">Op lijst</a>
+                    <a class = "col-md-3 detail_lijst_link" href="index.php?gerecht_id={{ data.0.id }}&action=addboodschappenlijst">Op lijst</a>
                     <i class="far fa-heart detail_favoriet"></i>
                 </div>
 			</div>
@@ -132,7 +132,7 @@
             <div class ="user_name">{{record.user_name}}</div>
             <div class ="user_comment">{{record.tekstveld}}</div>
         </div>
-    </div
+    </div>
     
 {% endfor %}
 </div>

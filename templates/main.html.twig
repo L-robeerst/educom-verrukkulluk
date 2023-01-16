@@ -22,7 +22,7 @@
 		<script>
 			function load_background_header(pagina,image) {
 				console.log(pagina)
-				if (pagina == "homepage") {
+				if (pagina != "detail") {
 					$("#background-image").vegas({
 						slides: [
 							{src: "assets/img/vegas_assets/vegas_eten_1.jpg"}, 
@@ -68,7 +68,7 @@
 							<div>
 								<img src="assets/img/logo-v2.png" / class='dropdown_logo'>
 								<div class="dropdown_text">Mijn Favorieten</div>
-								<div class="dropdown_text" style="margin-left: 10%">Mijn Boodschappenlijst</div>
+								<a class="dropdown_text" style="margin-left: 10%" href="index.php?action=boodschappenlijst">Mijn Boodschappenlijst</a>
 							</div>
 						</div>
                         </div>

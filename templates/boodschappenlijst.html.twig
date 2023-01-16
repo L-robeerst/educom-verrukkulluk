@@ -1,20 +1,43 @@
 {% extends "main.html.twig" %}
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
+{% set totaal = 0 %}
+<div class="row">
+	<div class="col-md-12 boodschappenlijst_blok">
+    <h1 class ="boodschappen_titel ">Boodschappen</h1>
+{% for record in data %}
+    {% set prijs = record.prijs * record.aantal %} 
+    {% set totaal = totaal + prijs %}
 
-    <div class="row">
-	    <div class="col-md-2 ingredient_foto" style="background-image: url('{{ record.afbeelding }}')"></div>
-		<div class="col-md-10">
-			<h5 class="ingredient_titel">
+    <div class="row boodsschappenlijst_artikel_blok">
+	    <div class="col-md-2 boodschappenlijst_foto" style="background-image: url('{{ record.afbeelding }}')"></div>
+		<div class="col-md-7">
+			<h5 class="boodschappenlijst_artikel_titel">
 				{{record.naam}}
 			</h5>
-			<div class="ingredient_beschrijving">
+			<div class="boodschappenlijst_artikel_beschrijving">
 				{{record.omschrijving}}
 			</div>
-            <div class="ingredient_hoeveelheid"> Hoeveelheid:</div>
-            <div class="ingredient_hoeveelheid_eenheid">{{ record.aantal}} {{ record.eenheid}}</div>
 		</div>
+        <div class="col-md-3">
+            <div class="boodschappenlijst_aantal">
+            {{record.aantal}}
+            </div>
+            <i class ="fas fa-euro-sign boodschappenlijst_euro">
+                <div class="boodschappenlijst_artikel_prijs">{{prijs|number_format(2,",")}}</div>
+            </i>
+            <i class="fas fa-trash-alt checkmark"></i>
+            <i class="fas fa-check trashcan"></i>
+        </div>
 	</div>
+{% endfor %}
 
+<h1 class = "boodschappen_totaal_text">Totaal</h1>
+<i class="fas fa-trash-alt checkmark"></i>
+<i class ="fas fa-euro-sign boodschappenlijst_euro bottom_euro">
+    <div class ="totaal_bedrag_bl">{{totaal|number_format(2,",")}}</div>
+</i>
+</div>
+</div>
 
 {% endblock %}

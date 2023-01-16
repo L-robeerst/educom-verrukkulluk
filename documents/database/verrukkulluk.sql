@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 11:21 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Gegenereerd op: 16 jan 2023 om 16:36
+-- Serverversie: 10.4.27-MariaDB
+-- PHP-versie: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artikel`
+-- Tabelstructuur voor tabel `artikel`
 --
 
 CREATE TABLE `artikel` (
@@ -39,7 +39,7 @@ CREATE TABLE `artikel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `artikel`
+-- Gegevens worden geëxporteerd voor tabel `artikel`
 --
 
 INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpakking`, `afbeelding`, `calorien`) VALUES
@@ -59,7 +59,7 @@ INSERT INTO `artikel` (`id`, `naam`, `omschrijving`, `prijs`, `eenheid`, `verpak
 -- --------------------------------------------------------
 
 --
--- Table structure for table `boodschappenlijst`
+-- Tabelstructuur voor tabel `boodschappenlijst`
 --
 
 CREATE TABLE `boodschappenlijst` (
@@ -69,10 +69,26 @@ CREATE TABLE `boodschappenlijst` (
   `aantal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Gegevens worden geëxporteerd voor tabel `boodschappenlijst`
+--
+
+INSERT INTO `boodschappenlijst` (`id`, `user_id`, `artikel_id`, `aantal`) VALUES
+(187, 1, 1, 1),
+(188, 1, 2, 1),
+(189, 1, 3, 1),
+(190, 1, 4, 1),
+(191, 1, 5, 1),
+(192, 1, 6, 1),
+(193, 1, 7, 1),
+(194, 1, 11, 1),
+(195, 1, 12, 1),
+(196, 1, 10, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gerecht`
+-- Tabelstructuur voor tabel `gerecht`
 --
 
 CREATE TABLE `gerecht` (
@@ -88,19 +104,19 @@ CREATE TABLE `gerecht` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `gerecht`
+-- Gegevens worden geëxporteerd voor tabel `gerecht`
 --
 
 INSERT INTO `gerecht` (`id`, `keuken_id`, `type_id`, `user_id`, `datum_toegevoegd`, `titel`, `korte_omschrijving`, `lange_omschrijving`, `afbeelding`) VALUES
-(1, 1, 4, 1, '2022-12-21', 'Spaghetti alla puttanesca', 'Een heerlijke klassieke Italiaanse pasta op basis van tomatensaus, kappertjes, ansjovis en olijven. Deze pasta is de definitie van groter dan de som van zijn delen ', 'Spaghetti alla puttanesca is een pasta met een ietwat opvallende naam. ‘Puttana’ betekent in het Italiaans namelijk prostituee. Er zijn talloos veel verhalen over de oorsprong van dit gerecht, maar tot op heden is het eigenlijk niet duidelijk waar -ie precies vandaan komt. Het enige wat vrijwel zeker is, is dat de pasta is ontstaan in de rosse buurt van Rome. Maakten de dames van lichte zeden dit gerecht voor zichzelf, of voor iemand anders? Of waren de ingrediënten een verwijzing naar de vrouwen: vurig, pittig en intens?\r\n\r\nDe pasta is hoe dan ook spicy, hoog op smaak en, ja: lekker intens. Dit Italiaanse maaltje is briljant in zijn eenvoud: met blokjes tomaat, goede olijfolie, ansjovisfilets, smaakvolle olijven, kappertjes, chilivlokken en lekker veel knoflook.', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/putanesca.jpg'),
-(2, 1, 5, 2, '2022-10-07', 'Spaghetti met tomaten-gehaktsaus', 'Een kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker!', 'Een kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker.\r\n\r\nEen kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker\r\n\r\nHeb dit twee keer geschreven omdat ik niet weet hoe ik in het lang spaghetti met tomatensaus moet beschrijven', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/spaghetti_tomaat.jpeg'),
-(3, 2, 5, 3, '2021-08-06', 'Een simpele hamburger', 'Een hamburger is een schijf gebakken of gegrild gemalen vlees, meestal rundergehakt. Vaak wordt \'hamburger\' ook als pars pro toto gebruikt voor een broodje dat met deze schijf belegd is.', 'Een hamburger is een schijf gebakken of gegrild gemalen vlees, meestal rundergehakt. Vaak wordt \'hamburger\' ook als pars pro toto gebruikt voor een broodje dat met deze schijf belegd is. Ook wordt informeel de term \'burger\' gebruikt. Vaak worden sla, tomaat, ui, spek, ei, augurken en kaas aan toegevoegd en sauzen als mosterd, mayonaise, ketchup of chilisaus. De hamburger wordt gebakken op een bakplaat, in een pan of op een grill of barbecue. Dit gerecht kent verschillende nationale en regionale varianten.\nEen hamburger is een schijf gebakken of gegrild gemalen vlees, meestal rundergehakt. Vaak wordt \'hamburger\' ook als pars pro toto gebruikt voor een broodje dat met deze schijf belegd is. Ook wordt informeel de term \'burger\' gebruikt. Vaak worden sla, tomaat, ui, spek, ei, augurken en kaas aan toegevoegd en sauzen als mosterd, mayonaise, ketchup of chilisaus. De hamburger wordt gebakken op een bakplaat, in een pan of op een grill of barbecue. Dit gerecht kent verschillende nationale en regionale varianten.\n2 keer want is hamburger', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/hamburger.jpeg'),
-(4, 3, 4, 4, '2022-07-28', 'Vegan burgers met guacamole', 'een lekker vegetarisch alternatief op de klassieke hamburger', 'Een tijdje geleden at ik een hele lekkere vega burger. Ik besloot het recept nog eens te maken en met jullie te delen. Deze vega burger met guacamole is in ongeveer 20 minuten klaar en een echte aanrader!\r\nEen tijdje geleden at ik een hele lekkere vega burger. Ik besloot het recept nog eens te maken en met jullie te delen. Deze vega burger met guacamole is in ongeveer 20 minuten klaar en een echte aanrader!\r\n2 keer voor de lengte', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/vega_burger.jpg');
+(1, 1, 4, 1, '2022-12-21', 'Spaghetti alla puttanesca', 'Een heerlijke klassieke Italiaanse pasta op basis van tomatensaus, kappertjes, ansjovis en olijven. Deze pasta is de definitie van groter dan de som van zijn delen ', 'Spaghetti alla puttanesca is een pasta met een ietwat opvallende naam. ‘Puttana’ betekent in het Italiaans namelijk prostituee. Er zijn talloos veel verhalen over de oorsprong van dit gerecht, maar tot op heden is het eigenlijk niet duidelijk waar -ie precies vandaan komt. Het enige wat vrijwel zeker is, is dat de pasta is ontstaan in de rosse buurt van Rome. Maakten de dames van lichte zeden dit gerecht voor zichzelf, of voor iemand anders? Of waren de ingrediënten een verwijzing naar de ', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/putanesca.jpg'),
+(2, 1, 5, 2, '2022-10-07', 'Tomaten-gehakt spaghetti', 'Een kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker!', 'Een kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker.\r\n\r\nEen kidsproof recept voor spaghetti! Het lijkt alsof er geen groenten in zitten, maar je kunt de groenten gewoon pureren. Simpel, maar zo lekker\r\n\r\nHeb dit twee keer geschreven omdat ik niet weet hoe ik in het lang spaghetti met tomatensaus moet beschrijven', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/spaghetti_tomaat.jpeg'),
+(3, 2, 5, 3, '2021-08-06', 'Een simpele hamburger', 'Een hamburger is een schijf gebakken of gegrild gemalen vlees, meestal rundergehakt. Vaak wordt \'hamburger\' ook als pars pro toto gebruikt voor een broodje dat met deze schijf belegd is.', 'Een hamburger is een schijf gebakken of gegrild gemalen vlees, meestal rundergehakt. Vaak wordt \'hamburger\' ook als pars pro toto gebruikt voor een broodje dat met deze schijf belegd is. Ook wordt informeel de term \'burger\' gebruikt. Vaak worden sla, tomaat, ui, spek, ei, augurken en kaas aan toegevoegd en sauzen als mosterd, mayonaise, ketchup of chilisaus. De hamburger wordt gebakken op een bakplaat, in een pan of op een grill of barbecue. Dit gerecht kent verschillende nationale en regionale varianten.', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/hamburger.jpeg'),
+(4, 3, 4, 4, '2022-07-28', 'Vegan burgers met guacamole', 'een lekker vegetarisch alternatief op de klassieke hamburger', 'Een tijdje geleden at ik een hele lekkere vega burger. Ik besloot het recept nog eens te maken en met jullie te delen. Deze vega burger met guacamole is in ongeveer 20 minuten klaar en een echte aanrader!\nEen tijdje geleden at ik een hele lekkere vega burger. Ik besloot het recept nog eens te maken en met jullie te delen. Deze vega burger met guacamole is in ongeveer 20 minuten klaar en een echte aanrader!\n2 keer voor de lengte', 'http://localhost/educom-verrukkulluk/assets/img/gerechten/vega_burger.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gerecht_info`
+-- Tabelstructuur voor tabel `gerecht_info`
 --
 
 CREATE TABLE `gerecht_info` (
@@ -114,7 +130,7 @@ CREATE TABLE `gerecht_info` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `gerecht_info`
+-- Gegevens worden geëxporteerd voor tabel `gerecht_info`
 --
 
 INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum`, `nummeriekveld`, `tekstveld`) VALUES
@@ -149,7 +165,7 @@ INSERT INTO `gerecht_info` (`id`, `record_type`, `gerecht_id`, `user_id`, `datum
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ingredient`
+-- Tabelstructuur voor tabel `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -160,7 +176,7 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ingredient`
+-- Gegevens worden geëxporteerd voor tabel `ingredient`
 --
 
 INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
@@ -187,7 +203,7 @@ INSERT INTO `ingredient` (`id`, `gerecht_id`, `artikel_id`, `aantal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `keuken_type`
+-- Tabelstructuur voor tabel `keuken_type`
 --
 
 CREATE TABLE `keuken_type` (
@@ -197,7 +213,7 @@ CREATE TABLE `keuken_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `keuken_type`
+-- Gegevens worden geëxporteerd voor tabel `keuken_type`
 --
 
 INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
@@ -210,7 +226,7 @@ INSERT INTO `keuken_type` (`id`, `record_type`, `omschrijving`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Tabelstructuur voor tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -222,27 +238,27 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Gegevens worden geëxporteerd voor tabel `user`
 --
 
 INSERT INTO `user` (`id`, `user_name`, `password`, `email`, `afbeelding`) VALUES
 (1, 'Richard Batsbak', 'appel', 'richardbatsbak@gmail.com', 'http://localhost/educom-verrukkulluk/assets/img/users/richard_batsbak.jpeg'),
 (2, 'Gerrie Van Boven', 'peer', 'gerrievanboven@gmail.com', 'http://localhost/educom-verrukkulluk/assets/img/users/gerrie_van_boven.jpeg'),
 (3, 'Rikkert Biemans', 'kers', 'rikkertbiemans@gmail.com', 'http://localhost/educom-verrukkulluk/assets/img/users/rikkert_biemans.png'),
-(4, 'Barrie Butsers', 'pruim', 'barriebutsers@gmail.com', 'http://localhost/educom-verrukkulluk/assets/img/users/barrie_butser.jpeg');
+(4, 'Barrie Butsers', 'pruim', 'barriebutsers@gmail.com', 'http://localhost/educom-verrukkulluk/assets/img/users/barrie_butsers.jpeg');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `artikel`
+-- Indexen voor tabel `artikel`
 --
 ALTER TABLE `artikel`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `boodschappenlijst`
+-- Indexen voor tabel `boodschappenlijst`
 --
 ALTER TABLE `boodschappenlijst`
   ADD PRIMARY KEY (`id`),
@@ -250,7 +266,7 @@ ALTER TABLE `boodschappenlijst`
   ADD KEY `artikel` (`artikel_id`);
 
 --
--- Indexes for table `gerecht`
+-- Indexen voor tabel `gerecht`
 --
 ALTER TABLE `gerecht`
   ADD PRIMARY KEY (`id`),
@@ -259,7 +275,7 @@ ALTER TABLE `gerecht`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `gerecht_info`
+-- Indexen voor tabel `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD PRIMARY KEY (`id`),
@@ -267,7 +283,7 @@ ALTER TABLE `gerecht_info`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `ingredient`
+-- Indexen voor tabel `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`id`),
@@ -275,69 +291,69 @@ ALTER TABLE `ingredient`
   ADD KEY `gerecht_id` (`gerecht_id`);
 
 --
--- Indexes for table `keuken_type`
+-- Indexen voor tabel `keuken_type`
 --
 ALTER TABLE `keuken_type`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indexen voor tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `artikel`
+-- AUTO_INCREMENT voor een tabel `artikel`
 --
 ALTER TABLE `artikel`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `boodschappenlijst`
+-- AUTO_INCREMENT voor een tabel `boodschappenlijst`
 --
 ALTER TABLE `boodschappenlijst`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=197;
 
 --
--- AUTO_INCREMENT for table `gerecht`
+-- AUTO_INCREMENT voor een tabel `gerecht`
 --
 ALTER TABLE `gerecht`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `gerecht_info`
+-- AUTO_INCREMENT voor een tabel `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT for table `ingredient`
+-- AUTO_INCREMENT voor een tabel `ingredient`
 --
 ALTER TABLE `ingredient`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `keuken_type`
+-- AUTO_INCREMENT voor een tabel `keuken_type`
 --
 ALTER TABLE `keuken_type`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT voor een tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `gerecht`
+-- Beperkingen voor tabel `gerecht`
 --
 ALTER TABLE `gerecht`
   ADD CONSTRAINT `gerecht_ibfk_1` FOREIGN KEY (`keuken_id`) REFERENCES `keuken_type` (`id`),
@@ -345,13 +361,13 @@ ALTER TABLE `gerecht`
   ADD CONSTRAINT `gerecht_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
--- Constraints for table `gerecht_info`
+-- Beperkingen voor tabel `gerecht_info`
 --
 ALTER TABLE `gerecht_info`
   ADD CONSTRAINT `gerecht_info_ibfk_1` FOREIGN KEY (`gerecht_id`) REFERENCES `gerecht` (`id`);
 
 --
--- Constraints for table `ingredient`
+-- Beperkingen voor tabel `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD CONSTRAINT `ingredient_ibfk_1` FOREIGN KEY (`artikel_id`) REFERENCES `artikel` (`id`),

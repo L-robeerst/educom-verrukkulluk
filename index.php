@@ -30,7 +30,7 @@ $kte = new keuken_type($connect);
 $ing = new ingredient($connect, $art);
 $inf = new gerecht_info($connect, $usr);
 $ger = new gerecht($connect, $usr, $inf, $kte, $ing);
-$bds = new boodschappenlijst($connect, $ing);
+$bds = new boodschappenlijst($connect, $ing, $art);
 $data = $ger->selecteerGerecht();
 
 /*
@@ -66,12 +66,18 @@ switch($action) {
             break;
         }
 
-        case "boodschappenlijst":{
-            $data = $ger->selecteerGerecht($gerecht_id);
+        case "addboodschappenlijst":{
             $bds->boodschappenToevoegen(1, $gerecht_id);
+            $data = $bds->selecteerBoodschappenlijst(1);
             $template = 'boodschappenlijst.html.twig';
             $title = "boodschappenlijst";
-        }   
+        }
+        
+        case "boodschappenlijst":{
+            $data = $bds->selecteerBoodschappenlijst(1);
+            $template = 'boodschappenlijst.html.twig';
+            $title = "boodschappenlijst";
+        }
 
         /// etc
 

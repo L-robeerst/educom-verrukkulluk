@@ -139,12 +139,14 @@ html, body {
     height: auto;
     
 }
-.dropdown_text{
+.dropdown_text,
+.dropdown_text:hover {
     display: inline-flex;
     font-family: "pretty_lilyregular";
     color: #dc3439;
     font-size: 40px;
     margin-left: 30%;
+    text-decoration: none;
 }
 
 .agenda_block{
@@ -572,5 +574,94 @@ margin-top: 10px;
     box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
 }
 
-    
 
+.boodschappenlijst_blok{
+margin-top: 25px;
+padding: 25px;
+height: 980px;
+overflow: scroll;
+-webkit-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+}
+
+.boodschappen_titel{
+    color: #6e8722;
+    margin-bottom: 50px;
+}
+
+.boodsschappenlijst_artikel_blok{
+margin-bottom: 30px;
+
+}
+
+.boodschappenlijst_foto{
+    background-size: 100% 100%;
+}
+
+.boodschappenlijst_artikel_titel{
+    color: #6e8722;
+
+}
+
+.boodschappenlijst_artikel_beschrijving{
+    font-size: medium;
+}
+
+.boodschappen_info_blok{
+
+}
+
+.boodschappenlijst_aantal{
+border: 2px solid lightgray;
+width: 60px;
+text-align: center;
+color:#6e8722;
+display: inline-block;
+font-size: large;
+}
+.boodschappenlijst_euro{
+color: #b31714;
+display: inline-flex;
+font-size: large;
+margin-left: 30px;
+
+}
+
+.boodschappenlijst_artikel_prijs{
+color: #000;
+font-weight: normal;
+margin-left: 5px;
+font-size: large;
+}
+
+.trashcan{
+float: right;
+font-size: large;
+margin-right: 40px;
+color:#6e8722
+}
+
+.checkmark{
+float: right;
+font-size: large;
+margin-right: 10px;
+color: #b31714;
+
+}
+
+.boodschappen_totaal_text{
+color: #b31714;
+display: inline-block;
+
+
+}
+
+.bottom_euro{
+float: right;
+margin-right: 85px;
+}
+.totaal_bedrag_bl{
+color: #000;
+font-weight: normal;
+}

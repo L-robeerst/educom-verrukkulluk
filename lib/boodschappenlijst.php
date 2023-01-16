@@ -2,11 +2,24 @@
 class boodschappenlijst{
     private $connection;
     private $ing;
-    public function __construct($connection, $ing) {  ///always public
+    private $art;
+    public function __construct($connection, $ing, $art) {  ///always public
         $this->connection = $connection;
         $this->ing = $ing;
+        $this->art = $art;
     }
 
+
+    public function selecteerBoodschappenlijst($user_id) { /// depends on the class wether public or private (left or right asd)
+        $sql = "SELECT * FROM boodschappenlijst WHERE user_id = $user_id";
+        $sql_result = mysqli_query($this->connection, $sql);
+        $result = [];
+        while ($row = mysqli_fetch_array($sql_result, MYSQLI_ASSOC)) {
+            $result[] = $row + $this->retrieveArtikel($row["artikel_id"]);
+            }
+        return $result;
+
+    }
    public function boodschappenToevoegen($user_id, $gerecht_id){
     
             $ingredienten = $this->retrieveIngredient($gerecht_id);
@@ -71,5 +84,9 @@ class boodschappenlijst{
    private function retrieveIngredient ($gerecht_id) {
     return $this->ing->selecteerIngredient($gerecht_id);
 }
+
+    private function retrieveArtikel ($artikel_id) {
+        return $this->art->selecteerArtikel($artikel_id);
+    }
 }
 
