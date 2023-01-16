@@ -3,76 +3,89 @@
 {# nu de block content op in de main pagina vullen #}
 {% block content %}
 
-    <div class="row">
+	<div class="row">
 
-        <script>
-      $(document).ready( function() {
-          $(".star").click( function() {
-            const star_value = $(this).attr('star-value')
-            const id_value = $(this).attr('gerecht-id')
-    
-            $('.star').each( (index, elem) => {
-              const starItemValue = $(elem).attr('star-value')
-              const idItemValue = $(elem).attr('gerecht-id')
-              if(starItemValue <= star_value & idItemValue==id_value) {
-                $(elem).addClass('yellow')
-              }
-              if(starItemValue == star_value & idItemValue==id_value){
-                console.log(star_value)
-                $.ajax({
-                    url: "index.php",
-                    method: "GET",
-                    data: { waardering: star_value, 
-                            gerecht_id: id_value,
-                            action: "waardering_toevoegen"
-                    },
-                    success: function(result) { 
-                    console.log("het is gelukt");
-                    }
+		<script>
+			$(document).ready(function () {
+                $(".star").click(function () {
+                    const star_value = $(this).attr('star-value')
+                    const id_value = $(this).attr('gerecht-id')
+
+                $('.star').each((index, elem) => {
+                    const starItemValue = $(elem).attr('star-value')
+                    const idItemValue = $(elem).attr('gerecht-id')
+                        if (starItemValue > star_value & idItemValue == id_value) {
+                            $(elem).removeClass('oranje')
+                        }
+                        if (starItemValue <= star_value & idItemValue == id_value) {
+                            $(elem).addClass('oranje')
+                            }
+                        if (starItemValue == star_value & idItemValue == id_value) {
+                            $.ajax({
+                                url: "index.php",
+                                method: "GET",
+                                data: {
+                                    waardering: star_value,
+                                    gerecht_id: id_value,
+                                    action: "waardering_toevoegen"
+                                    },
+                            success: function (result) {
+                            console.log("waardering is toegevoegd aan de database");
+                            }
+                            })
+                         }
+
+                    })
                 })
-                
-                id_value
-                star_value
-                "waardering_toevogen"
-
-              }
-
             })
-          }) 
-      })
-          
-    </script>
-    {# Loop #}
+		</script>
+		{# Loop #}
 
-    {% for record in data %}
+		{% for record in data %}
 
-        <div class="col-md-6 home_gerechten">
-            <div style="background-image: url('{{ record.afbeelding }}')" class ="home_foto"></div>
-            <div class="home_titel_rij">
-                <h3 class="home_titel"> {{ record.titel }}</h4> 
-                <div class="home_rating">{{ record.waardering }}
-                    <span class="fa fa-star star" star-value="1" gerecht-id ="{{ record.id }}"></span>
-                    <span class="fa fa-star star" star-value="2" gerecht-id ="{{ record.id }}"></span>
-                    <span class="fa fa-star star" star-value="3" gerecht-id ="{{ record.id }}"></span>
-                    <span class="fa fa-star star" star-value="4" gerecht-id ="{{ record.id }}"></span>
-                    <span class="fa fa-star star" star-value="5" gerecht-id ="{{ record.id }}"></span>
+			<div class="col-md-6 home_gerechten">
+				<div style="background-image: url('{{ record.afbeelding }}')" class="home_foto"></div>
+				<div class="col-md-12 home_titel_rij">
+					<h3 class="home_titel">
+						{{ record.titel }}</h3>
+					<div class="home_rating">
+						<script>
+							$(document).ready(function () {
+                                $('.star').each((index, elem) => {
+                                const starItemValue = $(elem).attr('star-value')
+                                const idItemValue = $(elem).attr('gerecht-id')
+                                    if (starItemValue <= {{ record.waardering }} & idItemValue == {{ record.id }}) {
+                                    $(elem).addClass('oranje')
+                                    }
+                                })
+                            })
+						</script>
+						<span class="fa fa-star star" star-value="1" gerecht-id="{{ record.id }}"></span>
+						<span class="fa fa-star star" star-value="2" gerecht-id="{{ record.id }}"></span>
+						<span class="fa fa-star star" star-value="3" gerecht-id="{{ record.id }}"></span>
+						<span class="fa fa-star star" star-value="4" gerecht-id="{{ record.id }}"></span>
+						<span class="fa fa-star star" star-value="5" gerecht-id="{{ record.id }}"></span>
+					</div>
+				</div>
+				<div class = "col-md-12 home_omschrijving">{{ record.korte_omschrijving}}</div>
+				<div class="bottom_home col-md-12">
+					<a class = "col-md-3 home_gerecht_link" href="index.php?gerecht_id={{ record.id }}&action=detail ">Smullen!</a>
+                    <div class="col-md-9 home_gerecht_info">
+					    <div class="col-md-4 fa fa-user-friends home_icon">
+                            <div class ="home_info_number">4</div>
+                        </div>
+                        <div class="col-md-4 fas fa-euro-sign home_icon"> 
+                            <div class = "home_info_number">{{ record.totaal_prijs|number_format(2,",")}}</div>
+                        </div>
+					    <div class="col-md-4 fas fa-fire home_icon">
+                            <div class = "home_info_number">{{record.totaal_calorieen|round}}</div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div>{{ record.korte_omschrijving}}</div>
-            <div>
-                <a href="index.php?gerecht_id={{ record.id }}&action=detail ">smullen</a>
-                {{ record.totaal_prijs|number_format(2,",")}}
-                {{record.totaal_calorieen|round}}
-            </div>
-        </div>
-   
+			</div>
 
-    {% endfor %}
-    </div>
 
-     {# Dump #}
-       <pre>
-        {{ dump(data[3]) }}
-       </pre>
+		{% endfor %}
+	</div>
 
 {% endblock %}

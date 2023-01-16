@@ -179,7 +179,7 @@ html, body {
      text-align: center;
      color: #FFF;
      width: 320px;
-     margin: 25px auto; 
+     margin: 50px auto; 
      -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.14);
@@ -227,39 +227,166 @@ html, body {
 
 
 .home_gerechten{
+    position: relative;
     margin: 25px;
     margin-left: 100px;
-    height: 402px;
+    margin-bottom: 50px;
+    height: 450px;
     width: 400px; 
-    border-style: solid;
-    -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
-    -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
-    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.28);
+    -webkit-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+}
 
+.detail_gerecht{
+    position: relative;
+    margin: 20px;
+    margin-top: 28px;
+    margin-left: 30px;
+    height: 500px;
+    width: 1000px; 
+    -webkit-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    
 }
 
 .home_foto{
     position: relative;
     top: -3px;
-    left: -15px;
+    left: -12px;
     width: 400px; 
     height: 200px;
     background-size: 100% 100%;
 
 }
 
+.detail_foto{
+    position: absolute; 
+    left: 0;
+    width: 1000px; 
+    height: 500px;
+    background-size: 100% 100%;
+    clip: rect(0, 500px, 500px, 0);
+
+}
+
+.detail_rechts{
+    margin-left: 525px ;
+    display: block;
+}
+
 .home_titel_rij{
-    display: inline-flex;
+margin-bottom: 40px;
+    
+}
+.detail_titel_rij{
+   margin-left: 525px;
+   display: block;     
 }
 
 .home_titel{
 color: #6e8722;
+float: left;
+}
+.detail_titel{
+color: #6e8722;
+float: left;
 }
 
 .home_rating{
+position: relative;
 display: inline-flex;
+top: 12px;
+float: right;
 }
 
+.detail_rating{
+position: relative;
+display: inline-flex;
+top: 12px;
+float: right;
+margin-right: 525px;
+}
+
+.home_omschrijving{
+
+text-align: left;
+float: left;
+}
+
+.detail_omschrijving{
+margin-left: 525px;
+width: fit-content;    
+text-align: left;
+float: left;    
+}
+
+.bottom_home{
+    position: absolute; 
+    bottom: 10px;
+    display: flex;
+
+
+}
+.home_gerecht_link,
+.home_gerecht_link:hover {
+font-family: pretty_lilyregular;
+padding-left: 10px;
+padding-right: 10px;
+color: #FFF;
+background-color: #dc3439;
+border-radius: 20px;
+font-size: 23px;
+text-decoration: none;
+text-align: center;
+margin-top: 10px;
+
+}
+.home_gerecht_info{
+    display: inline-flex;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.detail_rechts{
+    display: flex;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.home_icon{
+color: #dc3439;
+}
+
+.detail_icon{
+color: #dc3439;
+display: inline;
+font-size: large;
+}
+
+.home_info_number{
+display: inline-flex;
+padding: 7px;
+color: #000;
+font-weight: normal;
+}
+
+.detail_info_number{
+display: inline-flex;
+padding: 7px;
+color: #000;
+font-weight: normal;
+font-size: large;
+}
+
+.home_calories{
+float: right;
+}
+
+.home_geld{
+float: right;
+}
 
 .star {
     color: grey;
@@ -267,8 +394,183 @@ display: inline-flex;
 }
 
 .star:hover {
-    color: yellow;
+    color: #eb8d1f;
 }
-.yellow {
-    color: yellow;
+.oranje {
+    color: #eb8d1f;
 }
+
+.keuken_type{
+font-family: pretty_lilyregular;
+color: #6e8722;
+margin-left: 525px;
+margin-top: -5px;
+text-align: left;
+display: inline;
+float: left;
+font-size: 30px;
+}
+
+.keuken_type_type{
+    font-family: pretty_lilyregular;
+    color: #6e8722;
+    margin-top: -5px;
+    text-align: left;
+    display: inline;
+    float:right;
+    font-size:30px;
+}
+
+
+.keuken_type_text{
+font-family: Arial, Helvetica, sans-serif;
+display: inline-flex;
+padding: 7px;
+color: #000;
+font-weight: normal;
+font-size: large;
+}
+
+.kt{
+display: flex;
+justify-content: space-between;
+}
+
+.detail_botom_row{
+position: absolute;
+margin-top: 400px;
+margin-left: 525px;
+}
+.detail_lijst_link,
+.detail_lijst_link:hover {
+font-family: pretty_lilyregular;
+padding-left: 20px;
+padding-right: 20px;
+color: #FFF;
+background-color: #dc3439;
+border-radius: 20px;
+font-size: 30px;
+text-decoration: none;
+text-align: center;
+}
+
+.detail_favoriet{
+position: absolute;
+color: #dc3439;
+font-size: 25px;
+margin-top: 10px;
+margin-left: 280px;
+}
+
+.detail_favoriet:hover{
+cursor: pointer;
+}
+
+
+.ingredient_foto{
+background-size: 100% 100%;
+}
+.ingredient_titel{
+color: #6e8722;
+}
+
+.ingredient_beschrijving{
+    font-size: medium;
+    
+}
+
+.ingredient_hoeveelheid{
+    font-family: pretty_lilyregular;
+    color: #6e8722;
+    display: inline-block;
+}
+
+.ingredient_hoeveelheid_eenheid{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    display: inline-block;
+}
+
+.bereiding_nummer{
+color: #FFF;
+background-color: #fca01f;
+height: 50px;
+width: 50px;
+border-radius: 50%;
+font-size: 30px;
+text-align: center;
+display: inline-block;
+margin-top: 20px;
+margin-left: 8px;
+}
+
+.bereiding_text{
+margin-top: 20px;
+display: inline-block;
+vertical-align: middle;
+}
+
+.user_foto{
+background-size: 100% 100%;
+width: 90px;
+height: 90px;
+border-radius: 50%;
+margin: 10px;
+border: 5px solid #eb8d1f;
+}
+
+.user_name{
+color: #6e8722;
+font-family: pretty_lilyregular;
+font-size: 30px;
+margin-top: 10px;
+}
+
+.user_comment{
+font-family: Arial, Helvetica, sans-serif;
+color: #000;
+margin-top: 10px;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+    background-color: white;
+    float: left;
+    border-radius: 35%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 25px;
+    font-family: pretty_lilyregular;
+    color:#6e8722;
+
+  }
+
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: gray;
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    width: 1002px;
+    margin-left: 28px;
+
+    -webkit-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 20px -6px rgba(0,0,0,0.75);
+}
+
+    
+

@@ -66,6 +66,13 @@ switch($action) {
             break;
         }
 
+        case "boodschappenlijst":{
+            $data = $ger->selecteerGerecht($gerecht_id);
+            $bds->boodschappenToevoegen(1, $gerecht_id);
+            $template = 'boodschappenlijst.html.twig';
+            $title = "boodschappenlijst";
+        }   
+
         /// etc
 
 }

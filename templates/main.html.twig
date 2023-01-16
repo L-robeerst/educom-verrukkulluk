@@ -2,7 +2,7 @@
 	<head>
 
 		<title>het is verrukkuluk! ::
-			{{ TITEL }}
+			{{ title }}
 		</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
@@ -20,26 +20,28 @@
 		<script src="vegas/vegas.js"></script>
 
 		<script>
-			$(document).ready(function () {
-
-$("#background-image").vegas({
-slides: [
-{
-src: "assets/img/vegas_assets/vegas_eten_1.jpg"
-}, {
-src: "assets/img/vegas_assets/vegas_eten_2.jpg"
-}, {
-src: "assets/img/vegas_assets/vegas_eten_4.jpg"
-}, {
-src: "assets/img/vegas_assets/vegas_eten_4.jpg"
-},
-]
-})
-})
+			function load_background_header(pagina,image) {
+				console.log(pagina)
+				if (pagina == "homepage") {
+					$("#background-image").vegas({
+						slides: [
+							{src: "assets/img/vegas_assets/vegas_eten_1.jpg"}, 
+							{src: "assets/img/vegas_assets/vegas_eten_2.jpg"}, 
+							{src: "assets/img/vegas_assets/vegas_eten_4.jpg"}, 
+							{src: "assets/img/vegas_assets/vegas_eten_4.jpg"},
+						]
+				})} else{
+					$("#background-image").css("background-image", "url(" + image + ")")
+					$("#background-image").css("background-repeat", "no-repeat")
+					$("#background-image").css("background-size", "cover")
+					$("#background-image").css("background-position", "center center")
+				}
+			}
 		</script>
 	</head>
 </html>
-<body>
+<body onload="load_background_header('{{title}}', '{{ data[0].afbeelding }}')">
+
 	<div class="container-fluid">
 
 		<div class="row header">
@@ -137,6 +139,19 @@ src: "assets/img/vegas_assets/vegas_eten_4.jpg"
 							</div>
 						</li>
 						<li class="list-item">
+							<div class="row">
+								<div class="col-md-2 fa fa-calendar agenda_icon"></div>
+								<div class="col-md-10 ">
+									<h5 class="agenda_item_title">
+										Vegetarisch koken
+									</h5>
+									<p class="agenda_item_text">
+										Een workshop vegetarisch koken, onder leiding van Trientje Hupsakee
+									</p>
+								</div>
+							</div>
+						</li>
+                        <li class="list-item">
 							<div class="row">
 								<div class="col-md-2 fa fa-calendar agenda_icon"></div>
 								<div class="col-md-10 ">

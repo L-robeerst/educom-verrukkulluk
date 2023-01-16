@@ -1,0 +1,20 @@
+{% extends "main.html.twig" %}
+{# nu de block content op in de main pagina vullen #}
+{% block content %}
+
+    <div class="row">
+	    <div class="col-md-2 ingredient_foto" style="background-image: url('{{ record.afbeelding }}')"></div>
+		<div class="col-md-10">
+			<h5 class="ingredient_titel">
+				{{record.naam}}
+			</h5>
+			<div class="ingredient_beschrijving">
+				{{record.omschrijving}}
+			</div>
+            <div class="ingredient_hoeveelheid"> Hoeveelheid:</div>
+            <div class="ingredient_hoeveelheid_eenheid">{{ record.aantal}} {{ record.eenheid}}</div>
+		</div>
+	</div>
+
+
+{% endblock %}

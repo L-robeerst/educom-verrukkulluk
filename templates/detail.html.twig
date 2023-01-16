@@ -1,28 +1,158 @@
+{# Opnemen van de "Main" file #}
 {% extends "main.html.twig" %}
-
+{# nu de block content op in de main pagina vullen #}
 {% block content %}
- <div class="row">
-    {% for record in data %}
-        <div class="col-md-6 home_gerechten">
-            <div style="background-image: url('{{ record.afbeelding }}')" class ="home_foto"></div>
-            <div class="home_titel_rij">
-                <h3 class="home_titel"> {{ record.titel }}</h4> 
-                <div class="home_rating">{{ record.waardering.0.nummeriekveld }}
-                    <div class="fa fa-star"></div>
-                    <div class="fa fa-star"></div>
-                    <div class="fa fa-star"></div>
-                    <div class="fa fa-star"></div>
-                    <div class="fa fa-star"></div>
-                </div>
-            </div>
-            <div>{{ record.korte_omschrijving}}</div>
-            <div>
-                <a href="index.php?gerecht_id={{ record.id }}&action=detail ">smullen</a>
-                {{ record.totaal_prijs|number_format(2,",")}}
-                {{record.totaal_calorieen|round}}
-            </div>
-        </div>
-   
 
-    {% endfor %}
+	<div class="row">
+
+		<script>
+			$(document).ready(function () {
+                $(".star").click(function () {
+                    const star_value = $(this).attr('star-value')
+                    const id_value = $(this).attr('gerecht-id')
+
+                $('.star').each((index, elem) => {
+                    const starItemValue = $(elem).attr('star-value')
+                        if (starItemValue > star_value) {
+                            $(elem).removeClass('oranje')
+                        }
+                        if (starItemValue <= star_value) {
+                            $(elem).addClass('oranje')
+                            }
+                        if (starItemValue == star_value) {
+                            $.ajax({
+                                url: "index.php",
+                                method: "GET",
+                                data: {
+                                    waardering: star_value,
+                                    gerecht_id: id_value,
+                                    action: "waardering_toevoegen"
+                                    },
+                            success: function (result) {
+                            console.log("waardering is toegevoegd aan de database");
+                            }
+                            })
+                         }
+
+                    })
+                })
+            })
+		</script>
+
+            <div class="col-md-12 detail_gerecht">
+				<div style="background-image: url('{{ data.0.afbeelding }}')" class="col-md-6 detail_foto"></div>
+                    <div class="detail_rechts col-md-6">
+                        <div class="coll-md-12">
+                            <div class="col-md-2 fa fa-user-friends detail_icon">
+                                <div class ="detail_info_number">4</div>
+                            </div>
+                            <div class="col-md-2 fas fa-euro-sign detail_icon"> 
+                                <div class = "detail_info_number">{{ data.0.totaal_prijs|number_format(2,",")}}</div>
+                            </div>
+                            <div class="col-md-2 fas fa-fire detail_icon">
+                                <div class = "detail_info_number">{{data.0.totaal_calorieen|round}}</div>
+                            </div>
+                        </div>
+
+                </div
+            </div>
+				<div class="col-md-12 detail_titel_rij">
+					<h3 class="detail_titel">
+						{{ data[0].titel }}</h3>
+					<div class="detail_rating">
+						<script>
+							$(document).ready(function () {
+                                $('.star').each((index, elem) => {
+                                const starItemValue = $(elem).attr('star-value')
+                                    if (starItemValue <= {{ data.0.waardering }}) {
+                                    $(elem).addClass('oranje')
+                                    }
+                                })
+                            })
+						</script>
+						<span class="fa fa-star star" star-value="1" gerecht-id="{{ data.0.id }}"></span>
+						<span class="fa fa-star star" star-value="2" gerecht-id="{{ data.0.id }}"></span>
+						<span class="fa fa-star star" star-value="3" gerecht-id="{{ data.0.id }}"></span>
+						<span class="fa fa-star star" star-value="4" gerecht-id="{{ data.0.id }}"></span>
+						<span class="fa fa-star star" star-value="5" gerecht-id="{{ data.0.id }}"></span>
+					</div>
+				</div>
+                <div class="col-md-12" class ="kt">
+                    <div class=" keuken_type"> Keuken
+                        <div class="keuken_type_text">{{data.0.keuken.omschrijving}}</div>
+                    </div>
+                    <div class="keuken_type_type"> Type
+                        <div class="keuken_type_text">{{data.0.type.omschrijving}}</div>
+                    </div>
+                </div>
+				<div class = "col-md-12 detail_omschrijving">{{ data.0.lange_omschrijving}}</div>
+                <div class = "detail_botom_row">
+                    <a class = "col-md-3 detail_lijst_link" href="boodschappenlijst pagina ">Op lijst</a>
+                    <i class="far fa-heart detail_favoriet"></i>
+                </div>
+			</div>
+            <div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'ingredienten')">Ingredienten</button>
+  <button class="tablinks" onclick="openTab(event, 'bereidingswijze')">Bereidingswijze</button>
+  <button class="tablinks" onclick="openTab(event, 'opmerkingen')">Opmerkingen</button>
+</div>
+
+<div id="ingredienten" class="tabcontent">
+{% for record in data.0.ingredient %}
+    <div class="row">
+	    <div class="col-md-2 ingredient_foto" style="background-image: url('{{ record.afbeelding }}')"></div>
+		<div class="col-md-10">
+			<h5 class="ingredient_titel">
+				{{record.naam}}
+			</h5>
+			<div class="ingredient_beschrijving">
+				{{record.omschrijving}}
+			</div>
+            <div class="ingredient_hoeveelheid"> Hoeveelheid:</div>
+            <div class="ingredient_hoeveelheid_eenheid">{{ record.aantal}} {{ record.eenheid}}</div>
+		</div>
+	</div>
+{% endfor %}
+</div>
+
+<div id="bereidingswijze" class="tabcontent">
+{% for record in data.0.bereiding %}
+    <div class="row">
+        <div class="col-md-1 bereiding_nummer">{{record.nummeriekveld}}.</div>
+        <div class="col-md-11 bereiding_text">{{record.tekstveld}}</div>
+	</div>
+{% endfor %}
+</div>
+
+<div id="opmerkingen" class="tabcontent">
+{% for record in data.0.opmerkingen %}
+    <div class="row">
+        <div class="col-md-3 user_foto" style="background-image: url('{{record.afbeelding}}')"></div>
+        <div class="col-md-9" >
+            <div class ="user_name">{{record.user_name}}</div>
+            <div class ="user_comment">{{record.tekstveld}}</div>
+        </div>
+    </div
+    
+{% endfor %}
+</div>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+	</div>
+    
+	
 {% endblock %}
