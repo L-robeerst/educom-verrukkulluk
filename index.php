@@ -22,6 +22,7 @@ require_once("lib/ingredient.php");
 require_once("lib/gerecht_info.php");
 require_once("lib/gerecht.php");
 require_once("lib/boodschappenlijst.php");
+require_once("lib/zoeken.php");
 $db = new database();
 $connect = $db->getConnection();
 $art = new artikel($connect);
@@ -31,6 +32,7 @@ $ing = new ingredient($connect, $art);
 $inf = new gerecht_info($connect, $usr);
 $ger = new gerecht($connect, $usr, $inf, $kte, $ing);
 $bds = new boodschappenlijst($connect, $ing, $art);
+$zft = new zoeken($connect, $ger);
 $data = $ger->selecteerGerecht();
 
 /*
@@ -71,12 +73,34 @@ switch($action) {
             $data = $bds->selecteerBoodschappenlijst(1);
             $template = 'boodschappenlijst.html.twig';
             $title = "boodschappenlijst";
+            break;
         }
         
         case "boodschappenlijst":{
             $data = $bds->selecteerBoodschappenlijst(1);
             $template = 'boodschappenlijst.html.twig';
             $title = "boodschappenlijst";
+            break;
+        }
+
+        case "zoeken":{
+            $zoekterm = isset($_GET["zoekterm"]) ? $_GET["zoekterm"] : "";
+            $zoek_functie_result = $zft->zoekFunctie($zoekterm);
+            $i = 0;
+            $gerecht_id = 0;
+            $data = [];
+            foreach ($zoek_functie_result as $zoek_stap) {
+                $i++;
+                if ($zoek_stap != false) {
+                    $gerecht_id=$i;
+                    $gerecht =$ger->selecteerGerecht($gerecht_id)[0];
+
+                    $data[] = $gerecht;
+                }
+            }
+            $template = 'homepage.html.twig';
+            $title = "homepage";
+            break;
         }
 
         /// etc

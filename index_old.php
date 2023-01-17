@@ -8,6 +8,7 @@ require_once("lib/ingredient.php");
 require_once("lib/gerecht_info.php");
 require_once("lib/gerecht.php");
 require_once("lib/boodschappenlijst.php");
+require_once("lib/zoeken.php");
 
 
 /// INIT
@@ -20,10 +21,11 @@ $ing = new ingredient($connect, $art);
 $inf = new gerecht_info($connect, $usr);
 $ger = new gerecht($connect, $usr, $inf, $kte, $ing);
 $bds = new boodschappenlijst($connect, $ing, $art);
+$zft = new zoeken($connect, $ger);
 
 
 /// VERWERK 
-$testData = $bds->selecteerBoodschappenlijst(1);
+$testData = $zft->zoekFunctie("Vegan");
 /// RETURN
 echo "<pre>";
 var_dump($testData);

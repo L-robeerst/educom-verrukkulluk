@@ -56,9 +56,10 @@
 						{% endblock %}
 					</div>
 					<div class="col-md-2" class="search_bar_corner">
-						<form method="GET" action="">
+						<form method="GET" action="index.php">
+							<input type="hidden" name="action" value="zoeken" >
 							<i class="fa fa-search iconleft"></i>
-							<input type="text" placeholder="Zoeken" class="search_bar">
+							<input type="text" placeholder="Zoeken" name="zoekterm" class="search_bar">
 						</form>
 					</div>
 					<div class="col-md-1" class="search_bar_corner">
